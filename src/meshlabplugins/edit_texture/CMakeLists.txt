@@ -3,10 +3,12 @@
 
 ### Generated file! Edit the templates in src/templates then re-run ./make-cmake.py
 
-set(SOURCES edit_texture_factory.cpp edittexture.cpp renderarea.cpp
-            textureeditor.cpp)
+set(SOURCES
+    edit_texture_factory.cpp edittexture.cpp renderarea.cpp textureeditor.cpp
+    ${VCGDIR}/wrap/gui/trackball.cpp ${VCGDIR}/wrap/gui/trackmode.cpp)
 
-set(HEADERS edit_texture_factory.h edittexture.h renderarea.h textureeditor.h)
+set(HEADERS edit_texture_factory.h edittexture.h renderarea.h textureeditor.h
+            ${VCGDIR}/wrap/gui/trackball.h)
 
 set(RESOURCES meshlab.qrc)
 
@@ -16,6 +18,8 @@ add_library(edit_texture MODULE ${SOURCES} ${HEADERS} ${RESOURCES} ${UI})
 
 target_include_directories(edit_texture PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(edit_texture PUBLIC common)
+
+target_link_libraries(edit_texture PRIVATE OpenGL::GLU)
 
 set_property(TARGET edit_texture PROPERTY FOLDER Plugins)
 

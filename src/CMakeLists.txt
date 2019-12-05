@@ -192,7 +192,7 @@ else()
 
 
         # Filter plugins
-        # meshlabplugins/filter_aging # not in qmake file?
+        meshlabplugins/filter_aging # not in qmake file?
         # meshlabplugins/filter_bnpts # not in qmake file?
         meshlabplugins/filter_ao
         meshlabplugins/filter_camera
@@ -236,7 +236,7 @@ else()
 
         # Edit Plugins
         meshlabplugins/edit_align
-        # meshlabplugins/edit_hole # not in qmake file?
+        meshlabplugins/edit_hole # not in qmake file?
         meshlabplugins/edit_manipulators
         meshlabplugins/edit_measure
         meshlabplugins/edit_mutualcorrs
@@ -247,15 +247,20 @@ else()
         meshlabplugins/edit_quality
         meshlabplugins/edit_select
         # meshlabplugins/edit_slice # not in qmake file?
-        # meshlabplugins/edit_texture # not in qmake file?
+        meshlabplugins/edit_texture # not in qmake file? builds but crashes on use
 
         # Sample Plugins
+        sampleplugins/filter_createiso
+        sampleplugins/filter_geodesic
+        # sampleplugins/io_m # not in qmake, but builds fine
+        sampleplugins/sample_filtergpu
+        #sampleplugins/sample_pclfilter # not in qmake, needs PCL and updating for API change
+        # sampleplugins/sample_xmlfilter # not in qmake, but builds fine
         sampleplugins/sampleedit
         sampleplugins/samplefilter
         sampleplugins/samplefilterdyn
-        sampleplugins/filter_createiso
-        sampleplugins/filter_geodesic
-        sampleplugins/sample_filtergpu)
+        # sampleplugins/sampleio # not in qmake, but builds fine
+        )
 endif()
 
 function(meshlab_install_plugin_xml FN OUTVAR)

@@ -24,6 +24,8 @@ add_library(edit_hole MODULE ${SOURCES} ${HEADERS} ${RESOURCES} ${UI})
 target_include_directories(edit_hole PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(edit_hole PUBLIC common)
 
+target_link_libraries(edit_hole PRIVATE OpenGL::GLU)
+
 set_property(TARGET edit_hole PROPERTY FOLDER Plugins)
 
 set_property(TARGET edit_hole PROPERTY RUNTIME_OUTPUT_DIRECTORY
