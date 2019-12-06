@@ -28,9 +28,13 @@ if(NOT VCGDIR)
 endif()
 
 ### Build options
+include(CMakeDependentOption)
 
 option(BUILD_MINI "Build only a minimal set of plugins" OFF)
 option(BUILD_STRICT "Strictly enforce resolution of all symbols" ON)
+option(BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK "Enable the menu option to manually submit telemetry and check version" ON)
+cmake_dependent_option(BUILD_WITH_AUTO_VERSION_CHECK "Automatically submit telemetry and check version on startup" ON "BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK" OFF)
+
 set(BUILD_ADDITIONAL_PLUGINS
     ${BUILD_ADDITIONAL_PLUGINS}
     CACHE

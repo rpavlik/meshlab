@@ -47,6 +47,13 @@ target_link_libraries({{name}}
     PRIVATE
     external-jhead)
 
+if(BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK)
+    target_compile_definitions({{name}} PRIVATE BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK)
+    if(BUILD_WITH_AUTO_VERSION_CHECK)
+        target_compile_definitions({{name}} PRIVATE BUILD_WITH_AUTO_VERSION_CHECK)
+    endif()
+endif()
+
 {% endblock %}
 {% block install %}
 
