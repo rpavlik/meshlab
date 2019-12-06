@@ -31,7 +31,12 @@ MeshLab has a plugin architecture and therefore all the plugins are compiled sep
 
 Some plugins of MeshLab need external libraries. All the required libraries are included in the `meshlab/src/external` folder. You have to compile these libraries before attempting to compile the whole MeshLab. Just use the `meshlab/src/external.pro` file. For OsX 10.12 we kindly provide the already compiled binaries. 
 
-Once you have the required lib (check for lib files in the folder `meshlab/src/external/lib/<your_architecture>`) you can try to compile the whole meshlab using `src/meshlab_full.pro`. 
+Once you have the required lib (check for lib files in the folder `meshlab/src/external/lib/<your_architecture>`) you can try to compile the whole meshlab using `src/meshlab_full.pro`.
+
+There are two configuration options related to the telemetry/usage data and update checking feature: you can add them to your command line if you like (or `QMAKE_FLAGS` if you're following the instructions in the "Ubuntu 16 Compilation example")
+
+* Add `CONFIG+=disable_auto_update_check` to disable the automatic check on startup. (On its own, this still permits manual update check/usage submission from the menu.)
+* Add `CONFIG+=disable_telemetry_and_update_check` to completely disable the update checking feature.
 
 ### Platform specific notes
 On __osx__ some plugins exploit openmp parallelism (screened poisson, isoparametrization) so you need a compiler supporting it and the clang provided by xcode does not support openmp. Install 'clang++-mp-3.9' using macport or modify the .pro accordingly.

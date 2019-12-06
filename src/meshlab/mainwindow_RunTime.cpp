@@ -3600,6 +3600,7 @@ void MainWindow::sendHistory()
 void MainWindow::showEvent(QShowEvent * event)
 {
 	QWidget::showEvent(event);
+#ifdef BUILD_WITH_AUTO_VERSION_CHECK
 	QSettings settings;
     QSettings::setDefaultFormat(QSettings::NativeFormat);
 	const QString versioncheckeddatestring("lastTimeMeshLabVersionCheckedOnStart");
@@ -3620,6 +3621,7 @@ void MainWindow::showEvent(QShowEvent * event)
 		settings.setValue(versioncheckeddatestring, todayStr);
 	}
 	sendUsAMail();
+#endif // BUILD_WITH_AUTO_VERSION_CHECK
 }
 
 void MainWindow::meshAdded(int mid)

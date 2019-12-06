@@ -149,3 +149,11 @@ CONFIG(system_glew): LIBS += -lGLEW
 # The following define is needed in gcc to remove the asserts
 win32-g++:DEFINES += NDEBUG
 CONFIG(debug, debug|release):win32-g++:release:DEFINES -= NDEBUG
+
+
+# Telemetry/update check configuration
+
+!CONFIG(disable_telemetry_and_update_check) {
+    DEFINES += BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
+    !CONFIG(disable_auto_update_check): DEFINES += BUILD_WITH_AUTO_VERSION_CHECK
+}

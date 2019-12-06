@@ -534,7 +534,9 @@ private:
     QAction *submitBugAct;
     QAction *onlineHelpAct;
     QAction *onscreenHelpAct;
+#ifdef BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
     QAction *checkUpdatesAct;
+#endif // BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
     ////////////////////////////////////////////////////
     static QString getDecoratedFileName(const QString& name);
 

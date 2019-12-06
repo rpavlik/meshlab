@@ -436,8 +436,10 @@ connectRenderModeActionList(rendlist);*/
 	onscreenHelpAct->setShortcutContext(Qt::ApplicationShortcut);
 	connect(onscreenHelpAct, SIGNAL(triggered()), this, SLOT(helpOnscreen()));
 
+#ifdef BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
 	checkUpdatesAct = new QAction(tr("Submit telemetry and check for updates"), this);
 	connect(checkUpdatesAct, SIGNAL(triggered()), this, SLOT(checkForUpdates()));
+#endif // BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
 
 	///////////////Action Menu Split/Unsplit from handle////////////////////////////////////////////////////////
 	splitGroupAct = new QActionGroup(this);
@@ -634,7 +636,9 @@ void MainWindow::createMenus()
 	helpMenu->addAction(onlineHelpAct);
 	helpMenu->addAction(onscreenHelpAct);
 	helpMenu->addAction(submitBugAct);
+#ifdef BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
 	helpMenu->addAction(checkUpdatesAct);
+#endif // BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
 
 	fillEditMenu();
 	fillRenderMenu();
@@ -1127,6 +1131,8 @@ void MainWindow::saveRecentProjectList(const QString &projName)
 
 void MainWindow::checkForUpdates(bool verboseFlag)
 {
+
+#ifdef BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
 	VerboseCheckingFlag = verboseFlag;
 	QSettings settings;
 	int totalKV = settings.value("totalKV", 0).toInt();
@@ -1152,10 +1158,13 @@ void MainWindow::checkForUpdates(bool verboseFlag)
 	//idHost=httpReq->setHost(MeshLabApplication::organizationHost()); // id == 1
 	httpReq->get(QNetworkRequest(MeshLabApplication::organizationHost() + message));
 	//idGet=httpReq->get(message,&myLocalBuf);     // id == 2
+
+#endif // BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
 }
 
 void MainWindow::connectionDone(QNetworkReply *reply)
 {
+#ifdef BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
   QString answer = reply->readAll();
   if (answer.left(3) == QString("NEW"))
     QMessageBox::information(this, "MeshLab Version Checking", answer.remove(0, 3));
@@ -1167,11 +1176,12 @@ void MainWindow::connectionDone(QNetworkReply *reply)
       else 
         QMessageBox::warning(this, "Warning. Update Checking server did not answer correctly",answer);
     }
-  reply->deleteLater();
   
   QSettings settings;
   int loadedMeshCounter = settings.value("loadedMeshCounter", 0).toInt();
   settings.setValue("lastComunicatedValue", loadedMeshCounter);
+#endif // BUILD_WITH_TELEMETRY_AND_UPDATE_CHECK
+  reply->deleteLater();
 }
 
 
