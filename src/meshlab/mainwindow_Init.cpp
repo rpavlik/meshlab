@@ -436,7 +436,7 @@ connectRenderModeActionList(rendlist);*/
 	onscreenHelpAct->setShortcutContext(Qt::ApplicationShortcut);
 	connect(onscreenHelpAct, SIGNAL(triggered()), this, SLOT(helpOnscreen()));
 
-	checkUpdatesAct = new QAction(tr("Check for updates"), this);
+	checkUpdatesAct = new QAction(tr("Submit telemetry and check for updates"), this);
 	connect(checkUpdatesAct, SIGNAL(triggered()), this, SLOT(checkForUpdates()));
 
 	///////////////Action Menu Split/Unsplit from handle////////////////////////////////////////////////////////
