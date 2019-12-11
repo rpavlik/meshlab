@@ -4,7 +4,11 @@ Currently:
 
 ---- ann-1.1.1
 
----- glew-1.7.0
+---- glew-12.1.0
+
+---- levmar-2.3
+
+from http://users.ics.forth.gr/~lourakis/levmar/
 
 -----lib3ds-1.3.0
 Direct expansion of lib3ds-1.3.0.zip
