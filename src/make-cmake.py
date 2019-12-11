@@ -77,7 +77,6 @@ class CMaker:
         plugins_dirs = (
             self.root / 'meshlabplugins',
             self.root / 'plugins_experimental',
-            self.root / 'plugins_unsupported',
             self.root / 'sampleplugins'
         )
         for plugins_dir in plugins_dirs:
