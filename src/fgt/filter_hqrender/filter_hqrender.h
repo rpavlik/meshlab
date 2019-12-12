@@ -7,9 +7,12 @@
 #include <QStringList>
 #include <QProcess>
 #include <QFileInfo>
+#include "GL/glew.h"
 #include "RibFileStack.h"
 #include "export_rib.h"
 #include "utilities_hqrender.h"
+
+
 #include <common/meshmodel.h>
 #include <common/interfaces.h>
 

@@ -24,11 +24,11 @@
 #ifndef IORenderman_H
 #define IORenderman_H
 
-#include <QObject>
-#include <common/interfaces.h>
 #include "utilities_hqrender.h"
 #include "RibFileStack.h"
 #include "export_rib.h"
+#include <common/interfaces.h>
+#include <QObject>
 
 class IORenderman : public QObject, public MeshIOInterface
 {

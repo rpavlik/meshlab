@@ -7,7 +7,7 @@
 
 #include <common/meshmodel.h>
 
-#include <vcg/simplex/vertex/component_ocf.h>
+#include <vcg/complex/complex.h>
 
 namespace vs
 {

@@ -23,7 +23,7 @@
 
 #ifndef MESHLAB_INTERFACES_H
 #define MESHLAB_INTERFACES_H
-//#include <GL/glew.h>
+#include <GL/glew.h>
 
 #include "filterparameter.h"
 #include "GLLogStream.h"

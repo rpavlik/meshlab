@@ -251,7 +251,21 @@ else()
         sampleplugins/samplefilterdyn
         sampleplugins/filter_createiso
         sampleplugins/filter_geodesic
-        sampleplugins/sample_filtergpu)
+        sampleplugins/sample_filtergpu
+
+        # fgt/edit_topo # edit_topodialog.h:31:10: fatal error: 'QtGui/QApplication' file not found
+        # fgt/edit_virtual_scan # lots of build errors
+        # fgt/filter_decompose # old plugin system
+        # fgt/filter_gears # old plugin system
+        # fgt/filter_hqrender # export_rib.h:58:8: error: no member named 'HasPerVertexColor' in 'CMeshO'
+        # fgt/filter_physics # needs ODE, old plugin system,
+        # fgt/filter_scan_merging # build broken
+        # fgt/filter_shape # old plugin system, etc.
+        # fgt/filter_text # can't moc?
+        # fgt/filter_topo # can't moc?
+        # fgt/filter_waffle # old plugin system
+        # fgt/io_renderman # old plugin system
+        )
 endif()
 
 function(meshlab_install_plugin_xml FN OUTVAR)

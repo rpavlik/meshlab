@@ -1,6 +1,6 @@
-#include <QDir.h>
-#include <QString.h>
-#include <QStringList.h>
+#include <QDir>
+#include <QString>
+#include <QStringList>
 #include <math.h>
 
 namespace UtilitiesHQR {

@@ -78,7 +78,9 @@ class CMaker:
             self.root / 'meshlabplugins',
             self.root / 'plugins_experimental',
             self.root / 'plugins_unsupported',
-            self.root / 'sampleplugins'
+            self.root / 'sampleplugins',
+
+            self.root / 'fgt'
         )
         for plugins_dir in plugins_dirs:
             if not plugins_dir.exists():

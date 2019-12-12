@@ -3,6 +3,8 @@
 
 #define RIB_EXPORT_STEPS 7
 
+#include <iostream>
+
 #include<wrap/io_trimesh/io_mask.h>
 #include<wrap/callback.h>
 #include<vcg/complex/algorithms/clean.h>

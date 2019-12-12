@@ -36,7 +36,7 @@
 #include <vcg/complex/algorithms/update/bounding.h>
 
 #include "filter_topo.h"
-#include "../edit_topo/edit_topomeshbuilder.h"
+#include "edit_topomeshbuilder.h"
 
 
 

@@ -21,9 +21,10 @@
 *                                                                           *
 ****************************************************************************/
 
+#include "filter_shape.h"
+
 #include <Qt>
 #include <QtGui>
-#include "filter_shape.h"
 
 #include <vcg/math/base.h>
 #include <vcg/complex/algorithms/clean.h>
